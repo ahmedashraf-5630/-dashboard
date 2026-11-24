@@ -1,0 +1,88 @@
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>دليلك للتفوق</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef4f3;--c:#fff;--t:#10302e;--m:#58706d;--p:#0b6b63;--pt:#fff;--ok:#157347;--no:#b3261e;--w:#a85d00;--b:#cfdcda;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0c1b1a;--c:#142928;--t:#e4f1ef;--m:#93aeab;--p:#4fd1c5;--pt:#06201e;--ok:#5fd68f;--no:#ff8a80;--w:#ffb454;--b:#26433f}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0c1b1a;--c:#142928;--t:#e4f1ef;--m:#93aeab;--p:#4fd1c5;--pt:#06201e;--ok:#5fd68f;--no:#ff8a80;--w:#ffb454;--b:#26433f}
+*{box-sizing:border-box}html,body{margin:0}body{background:var(--bg);color:var(--t);font:400 15px/1.7 Cairo,Tahoma,Arial,sans-serif;padding:0 14px 40px}
+header{max-width:1000px;margin:0 auto;padding:22px 0 10px}h1{font-size:30px;font-weight:800;margin:0;color:var(--p)}header p{margin:0;color:var(--m)}
+nav{max-width:1000px;margin:8px auto;display:flex;gap:6px;flex-wrap:wrap;position:sticky;top:env(safe-area-inset-top,0px);background:var(--bg);padding:6px 0;z-index:5}
+nav button{font:inherit;border:1px solid var(--b);background:var(--c);color:var(--t);padding:6px 14px;border-radius:8px;cursor:pointer}nav button.on{background:var(--p);color:var(--pt);border-color:var(--p);font-weight:600}
+main{max-width:1000px;margin:0 auto}.box{background:var(--c);border:1px solid var(--b);border-radius:10px;padding:16px;margin-bottom:14px}h2{font-size:19px;margin:0 0 10px}h3{font-size:16px;margin:12px 0 6px}
+.row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}input,select,textarea{font:inherit;color:var(--t);background:var(--bg);border:1px solid var(--b);border-radius:8px;padding:6px 10px}textarea{width:100%;min-height:80px}
+.btn{font:inherit;background:var(--p);color:var(--pt);border:0;border-radius:8px;padding:6px 14px;cursor:pointer;font-weight:600}.btn.g{background:transparent;color:var(--no);border:1px solid var(--b);padding:2px 10px}
+.sc{overflow-x:auto}table{border-collapse:collapse;width:100%;min-width:520px}th,td{border-bottom:1px solid var(--b);padding:6px 8px;text-align:right;vertical-align:top}th{font-weight:600;color:var(--m);font-size:13px}
+.cell{cursor:pointer;text-align:center;user-select:none;font-weight:800}.y{color:var(--ok)}.n{color:var(--no)}.u{color:var(--m)}
+.bar{background:var(--bg);border-radius:6px;height:10px;min-width:80px;overflow:hidden}.bar i{display:block;height:100%}.hi{background:var(--ok)}.md{background:var(--w)}.lo{background:var(--no)}
+.tag{display:inline-block;padding:0 10px;border-radius:99px;font-size:13px;font-weight:600;border:1px solid currentColor}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}.st{flex:1;min-width:120px;border:1px solid var(--b);border-radius:10px;padding:8px 12px}.st b{display:block;font-size:24px;color:var(--p)}
+input.sc2{width:64px;text-align:center;font-weight:800;padding:4px}input.sc2.y{color:var(--ok);border-color:var(--ok)}input.sc2.n{color:var(--no);border-color:var(--no)}.hint{color:var(--m);font-size:13px}@media print{nav,.noprint{display:none}body{padding:0}}
+</style></head><body>
+<header><h1>دليلك للتفوق</h1><p>متابعة مهارات الصف السادس الابتدائي، وتحليل المستوى، والخطط العلاجية</p></header>
+<nav id="nav"></nav><main id="app"></main>
+<script>
+const K='dalilak_v1';let S=null;
+try{S=JSON.parse(localStorage.getItem(K))}catch(e){}
+const uid=()=>Math.random().toString(36).slice(2,8);
+if(!S){const sk=['القراءة بالكسور العشرية','جمع الكسور','طرح الكسور','ضرب الكسور','حل المسائل اللفظية'].map(n=>({id:uid(),name:n,max:10}));
+const mk=(n,a)=>({id:uid(),name:n,m:Object.fromEntries(sk.map((s,i)=>[s.id,a[i]?9:3]))});
+S={v2:1,thr:70,skills:sk,classes:[{id:uid(),name:'6/1 (تجريبي)',students:[mk('أحمد محمد',[1,1,1,1,1]),mk('سارة علي',[1,1,0,1,0]),mk('محمود حسن',[1,0,0,0,0]),mk('منى إبراهيم',[1,1,1,0,1])]}]}}
+if(!S.v2){S.v2=1;S.thr=70;S.classes.forEach(c=>c.students.forEach(s=>{for(const k in s.m)s.m[k]=s.m[k]?9:3}));S.skills.forEach(k=>k.max=10)}
+const save=()=>{try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}};
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const $=id=>document.getElementById(id);
+let tab='cls',ci=0,si=0;
+const TABS=[['cls','الفصول والمهارات'],['sk','قائمة المهارات'],['stu','تحليل طالب'],['clsA','تحليل فصل'],['grd','تحليل الصف']];
+const SK=k=>S.skills.find(x=>x.id===k);const okv=(v,k)=>v>=(SK(k).max||10)*S.thr/100;
+const rate=(sts,k)=>{let a=0,m=0;sts.forEach(s=>{if(s.m[k]!==undefined){a++;if(okv(s.m[k],k))m++}});return a?Math.round(m/a*100):null};
+const pct=s=>{let a=0,m=0;S.skills.forEach(k=>{if(s.m[k.id]!==undefined){a+=k.max||10;m+=s.m[k.id]}});return a?Math.round(m/a*100):null};
+const avg=sts=>{const v=sts.map(pct).filter(x=>x!==null);return v.length?Math.round(v.reduce((a,b)=>a+b,0)/v.length):null};
+const lv=p=>p===null?['غير مقيّم','u']:p>=85?['متفوق','y']:p>=60?['متوسط','w']:['يحتاج دعم','n'];
+const tag=p=>{const l=lv(p);return `<span class="tag" style="color:var(--${l[1]==='u'?'m':l[1]==='y'?'ok':l[1]==='w'?'w':'no'})">${l[0]}</span>`};
+const bar=p=>`<div class="bar"><i class="${p>=75?'hi':p>=50?'md':'lo'}" style="width:${p||0}%"></i></div>`;
+const R=[
+{n:'أولوية قصوى',m:'إعادة شرح المهارة بالمحسوسات والنماذج، ثم تدريس الأقران وتقسيم الطلاب لمجموعات صغيرة مع متابعة فردية.',w:'ورقة تأسيسية: أمثلة محلولة خطوة بخطوة، ثم 10 تدريبات متدرجة من السهل إلى الأصعب.',p:'3 أسابيع: الأول شرح مبسّط وتدريب يومي قصير، الثاني ورقة العمل وتقويم تكويني، الثالث إعادة تدريب على الأخطاء وتقويم ختامي.'},
+{n:'تدريب موجّه',m:'تدريب في مجموعات متفاوتة المستوى، مع ألعاب تعليمية وتغذية راجعة فورية على الأخطاء الشائعة.',w:'ورقة تدريب متنوعة: تمارين مباشرة ومسائل لفظية وسؤال تفكير في النهاية.',p:'أسبوعان: الأول تدريب موجّه وورقة عمل، الثاني تقويم قصير وإعادة تدريس لمن لم يتقن.'},
+{n:'تثبيت وإثراء',m:'أنشطة تحدٍّ وتكليف المتقنين بدور المساعد، ومراجعة سريعة للمهارة ضمن الحصص القادمة.',w:'ورقة إثراء: مسائل تفكير ومواقف حياتية تربط المهارة بالواقع.',p:'أسبوع واحد: مراجعة في بداية الحصص، وتقويم قصير في نهاية الأسبوع.'}];
+const rl=r=>r<50?0:r<75?1:2;
+const remTable=rows=>{const x=rows.filter(r=>r.r!==null).sort((a,b)=>a.r-b.r);if(!x.length)return '<p class="hint">لا توجد بيانات تقويم بعد.</p>';
+return `<div class="sc"><table><tr><th>المهارة</th><th>الإتقان</th><th>الطريقة العلاجية</th><th>ورقة العمل المقترحة</th><th>الخطة الزمنية</th></tr>${x.map(r=>{const d=R[rl(r.r)];return `<tr><td><b>${esc(r.name)}</b><br><span class="hint">${d.n}</span></td><td>${r.r}%${bar(r.r)}</td><td>${d.m}</td><td>${d.w}</td><td>${d.p}</td></tr>`}).join('')}</table></div>`};
+const cur=()=>{if(ci>=S.classes.length)ci=0;return S.classes[ci]};
+const clsSel=()=>S.classes.length?`<select onchange="ci=+this.value;si=0;go()">${S.classes.map((c,i)=>`<option value="${i}" ${i==ci?'selected':''}>${esc(c.name)}</option>`).join('')}</select>`:'';
+const empty='<div class="box"><p>أضف فصلاً وطلاباً من تبويب «الفصول والمهارات» لتبدأ.</p></div>';
+function go(){$('nav').innerHTML=TABS.map(t=>`<button class="${t[0]==tab?'on':''}" onclick="tab='${t[0]}';go()">${t[1]}</button>`).join('')+'<button onclick="window.print()" class="noprint">طباعة</button>';
+$('app').innerHTML=({cls:vCls,sk:vSk,stu:vStu,clsA:vClsA,grd:vGrd})[tab]();}
+function vCls(){const c=cur();
+let h=`<div class="box"><div class="row">${clsSel()}<input id="nc" placeholder="اسم فصل جديد، مثل 6/2"><button class="btn" onclick="addCls()">إضافة فصل</button></div>`;
+if(!c)return h+'</div>';
+h+=`<h2>فصل ${esc(c.name)}</h2><p class="hint">اكتب درجة كل طالب في كل مهارة. تظهر الدرجة بالأخضر عند الإتقان (من ${S.thr}% من الدرجة النهاية فأكثر) وبالأحمر إن لم يتقن. اترك الخانة فارغة إن لم تُقيَّم.</p><div class="sc"><table><tr><th>الطالب</th>${S.skills.map(k=>`<th>${esc(k.name)}<br><span class="hint">من ${k.max||10}</span></th>`).join('')}<th>النسبة</th><th></th></tr>`;
+c.students.forEach((s,i)=>{const p=pct(s);h+=`<tr><td>${esc(s.name)}</td>${S.skills.map(k=>{const v=s.m[k.id];return `<td><input type="number" min="0" max="${k.max||10}" step="0.5" value="${v??''}" class="sc2 ${v===undefined?'':okv(v,k.id)?'y':'n'}" onchange="setSc(${i},'${k.id}',this.value,this)"></td>`}).join('')}<td id="p${i}">${p===null?'–':p+'%'}</td><td><button class="btn g" onclick="delStu(${i})">حذف</button></td></tr>`});
+h+=`</table></div><h3>إضافة طلاب</h3><textarea id="ns" placeholder="اكتب اسم كل طالب في سطر"></textarea><div class="row"><button class="btn" onclick="addStu()">إضافة الأسماء</button><button class="btn g" onclick="delCls()">حذف هذا الفصل</button></div></div>`;return h}
+function vSk(){return `<div class="box"><h2>المهارات المطلوب قياسها</h2><div class="row"><label>يُعتبر الطالب متقناً عند <input type="number" min="1" max="100" value="${S.thr}" style="width:70px" onchange="S.thr=Math.min(100,Math.max(1,+this.value||70));save()"> % من الدرجة النهاية</label></div><div class="row"><input id="nk" placeholder="اسم مهارة جديدة" size="30"><button class="btn" onclick="addSk()">إضافة مهارة</button></div>${S.skills.map((k,i)=>`<div class="row"><span style="flex:1">${esc(k.name)}</span><label class="hint">الدرجة النهاية <input type="number" min="1" value="${k.max||10}" style="width:70px" onchange="setMax(${i},this.value)"></label><button class="btn g" onclick="delSk(${i})">حذف</button></div>`).join('')||'<p class="hint">لا توجد مهارات.</p>'}</div>`}
+function vStu(){const c=cur();if(!c||!c.students.length)return empty;if(si>=c.students.length)si=0;const s=c.students[si],p=pct(s);
+const ok=S.skills.filter(k=>s.m[k.id]!==undefined&&okv(s.m[k.id],k.id)),no=S.skills.filter(k=>s.m[k.id]!==undefined&&!okv(s.m[k.id],k.id));
+return `<div class="box"><div class="row">${clsSel()}<select onchange="si=+this.value;go()">${c.students.map((x,i)=>`<option value="${i}" ${i==si?'selected':''}>${esc(x.name)}</option>`).join('')}</select></div>
+<h2>${esc(s.name)}</h2><div class="stats"><div class="st"><b>${p===null?'–':p+'%'}</b>نسبة الإتقان</div><div class="st"><b>${ok.length}</b>مهارات متقنة</div><div class="st"><b>${no.length}</b>مهارات تحتاج علاجاً</div><div class="st">${tag(p)}<br><span class="hint">متوسط الفصل ${avg(c.students)??'–'}%</span></div></div>
+<h3>المهارات المتقنة</h3><p>${ok.map(k=>esc(k.name)+' ('+s.m[k.id]+'/'+(k.max||10)+')').join('، ')||'لا يوجد'}</p><h3>المهارات التي تحتاج علاجاً</h3>
+${no.length?remTable(no.map(k=>({name:k.name,r:Math.round(s.m[k.id]/(k.max||10)*100)})))+'<p class="hint">الخطة هنا لمهارات لم يتقنها الطالب، وتُنفَّذ بشكل فردي أو في مجموعة صغيرة.</p>':'<p>أتقن الطالب جميع المهارات المقيّمة.</p>'}</div>`}
+function vClsA(){const c=cur();if(!c||!c.students.length)return empty;const a=avg(c.students);
+const d=[0,0,0];c.students.forEach(s=>{const p=pct(s);if(p!==null)d[p>=85?0:p>=60?1:2]++});
+const sup=c.students.filter(s=>{const p=pct(s);return p!==null&&p<60}).map(s=>esc(s.name));
+const rows=S.skills.map(k=>({name:k.name,r:rate(c.students,k.id)}));
+return `<div class="box"><div class="row">${clsSel()}</div><h2>تحليل فصل ${esc(c.name)}</h2><div class="stats"><div class="st"><b>${a??'–'}%</b>متوسط الفصل</div><div class="st"><b>${d[0]}</b>متفوقون</div><div class="st"><b>${d[1]}</b>متوسطون</div><div class="st"><b>${d[2]}</b>يحتاجون دعماً</div></div>
+<h3>الإتقان في كل مهارة</h3><div class="sc"><table>${rows.map(r=>`<tr><td>${esc(r.name)}</td><td>${r.r===null?'–':r.r+'%'}</td><td style="width:40%">${bar(r.r)}</td></tr>`).join('')}</table></div>
+<h3>طلاب يحتاجون دعماً</h3><p>${sup.join('، ')||'لا يوجد'}</p><h3>الخطة العلاجية للفصل</h3>${remTable(rows)}</div>`}
+function vGrd(){const all=[];S.classes.forEach(c=>all.push(...c.students));if(!all.length)return empty;
+const rows=S.skills.map(k=>({name:k.name,r:rate(all,k.id)}));
+return `<div class="box"><h2>تحليل الصف السادس بأكمله</h2><div class="stats"><div class="st"><b>${all.length}</b>طالباً</div><div class="st"><b>${S.classes.length}</b>فصول</div><div class="st"><b>${avg(all)??'–'}%</b>متوسط الصف</div></div>
+<h3>مقارنة الفصول</h3><div class="sc"><table><tr><th>الفصل</th><th>الطلاب</th><th>المتوسط</th><th>يحتاجون دعماً</th><th></th></tr>${S.classes.map(c=>{const a=avg(c.students);return `<tr><td>${esc(c.name)}</td><td>${c.students.length}</td><td>${a??'–'}%</td><td>${c.students.filter(s=>{const p=pct(s);return p!==null&&p<60}).length}</td><td style="width:30%">${bar(a)}</td></tr>`}).join('')}</table></div>
+<h3>المهارات مرتبة من الأضعف إلى الأقوى، مع الخطة العلاجية</h3>${remTable(rows)}</div>`}
+function setSc(i,k,v,el){const s=cur().students[i],mx=SK(k).max||10;if(v.trim()==='')delete s.m[k];else s.m[k]=Math.max(0,Math.min(mx,+v||0));el.className='sc2 '+(s.m[k]===undefined?'':okv(s.m[k],k)?'y':'n');el.value=s.m[k]===undefined?'':s.m[k];const p=pct(s);$('p'+i).textContent=p===null?'–':p+'%';save()}
+function addCls(){const v=$('nc').value.trim();if(!v)return;S.classes.push({id:uid(),name:v,students:[]});ci=S.classes.length-1;save();go()}
+function delCls(){S.classes.splice(ci,1);ci=0;save();go()}
+function addStu(){const c=cur();$('ns').value.split('\n').map(x=>x.trim()).filter(Boolean).forEach(n=>c.students.push({id:uid(),name:n,m:{}}));save();go()}
+function delStu(i){cur().students.splice(i,1);save();go()}
+function addSk(){const v=$('nk').value.trim();if(!v)return;S.skills.push({id:uid(),name:v,max:10});save();go()}
+function delSk(i){S.skills.splice(i,1);save();go()}
+function setMax(i,v){S.skills[i].max=Math.max(1,+v||10);save()}
+go();
+</script></body></html>
